@@ -1,14 +1,15 @@
-const API_KEY = "1d3a0eefa97b499d8fbc4ee93eeb40b7";
-const url = "https://newsapi.org/v2/everything?q=";
+const API_KEY1 = "97dc581a8f2c4c59b99176f6c7e18fc5";
+// const weather1 = document.querySelector("#template-news-card");
 
-window.addEventListener("load", () => fetchNews("India"));
+window.addEventListener("load", () => fetchNews("cricket"));
 
 function reload() {
     window.location.reload();
 }
 
 async function fetchNews(query) {
-    const res = await fetch(`${url}${query}&apiKey=${API_KEY}`);
+    const url_ = `https://newsapi.org/v2/everything?q=`; 
+    const res = await fetch(`${url_}${query}&apiKey=${API_KEY1}`);
     const data = await res.json();
     bindData(data.articles);
 }
@@ -52,7 +53,7 @@ let curSelectedNav = null;
 function onNavItemClick(id) {
     fetchNews(id);
     const navItem = document.getElementById(id);
-    curSelectedNav.classList.remove("active");
+    curSelectedNav?.classList.remove("active");
     curSelectedNav = navItem;
     curSelectedNav.classList.add("active");
 }
@@ -64,6 +65,6 @@ searchButton.addEventListener("click", () => {
     const query = searchText.value;
     if (!query) return;
     fetchNews(query);
-    curSelectedNav.classList.remove("active");
+    curSelectedNav?.classList.remove("active");
     curSelectedNav = null;
 });
