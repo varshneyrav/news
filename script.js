@@ -1,6 +1,4 @@
 const API_KEY1 = "97dc581a8f2c4c59b99176f6c7e18fc5";
-// const weather1 = document.querySelector("#template-news-card");
-
 window.addEventListener("load", () => fetchNews("cricket"));
 
 function reload() {
